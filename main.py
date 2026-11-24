@@ -29,6 +29,9 @@ def main() -> None:
     out_path = os.path.join(out_dir, "entry.txt")
     with open(out_path, "w", encoding="utf-8", newline="") as f:
         f.write(word)
+    # verify the file holds exactly the single word, nothing else
+    with open(out_path, "r", encoding="utf-8") as f:
+        assert f.read() == word, "entry.txt must contain exactly the one word"
 
 
 if __name__ == "__main__":
